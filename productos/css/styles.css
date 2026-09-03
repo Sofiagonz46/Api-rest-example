@@ -40,12 +40,10 @@ header button:hover {
 /* ENLACE PARA VOLVER AL INICIO */
 
 .back-link {
-    display: block;
-    width: 90%;
-    margin: 15px auto;
+    display: inline-block;
+    margin-bottom: 15px;
     text-decoration: none;
     color: #333;
-    font-size: 14px;
 }
 
 .back-link:hover {
