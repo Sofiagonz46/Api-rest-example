@@ -37,6 +37,21 @@ header button:hover {
     background-color: #ddd;
 }
 
+/* ENLACE PARA VOLVER AL INICIO */
+
+.back-link {
+    display: block;
+    width: 90%;
+    margin: 15px auto;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
 /* CONTENEDOR PRINCIPAL */
 
 .container {

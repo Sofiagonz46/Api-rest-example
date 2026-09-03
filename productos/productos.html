@@ -17,34 +17,40 @@
     <button id="load-products">Cargar productos</button>
 </header>
 
-<main>
+<a class="back-link" href="../home.html">← Volver al inicio</a>
 
-    <section class="filters">
-        <h2>Filtros</h2>
+<main class="container">
 
-        <div class="filter-group">
-            <label for="name-filter">Nombre</label>
+    <div class="main-content">
 
-            <input
-                type="text"
-                id="name-filter"
-                placeholder="Buscar por nombre"
-            >
-        </div>
-    </section>
+        <section class="filters">
+            <h2>Filtros</h2>
 
-    <section class="products-section">
+            <div class="filter-group">
+                <label for="name-filter">Nombre</label>
 
-        <h2>Lista de productos</h2>
+                <input
+                    type="text"
+                    id="name-filter"
+                    placeholder="Buscar por nombre"
+                >
+            </div>
+        </section>
 
-        <p id="products-counter"></p>
+        <section class="products-section">
 
-        <div
-            id="products-container"
-            class="products-container">
-        </div>
+            <h2>Lista de productos</h2>
 
-    </section>
+            <p id="products-counter" class="products-counter"></p>
+
+            <div
+                id="products-container"
+                class="products-container">
+            </div>
+
+        </section>
+
+    </div>
 
 </main>
 

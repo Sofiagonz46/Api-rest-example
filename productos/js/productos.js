@@ -19,74 +19,75 @@ let _products = [];
 
 // Cargar productos desde la API
 async function loadProducts() {
-  try {
-    const productsData = await fetch(API_URL);
-    const productsJsonData = await productsData.json();
+    try {
+        const productsData = await fetch(API_URL);
+        const productsJsonData = await productsData.json();
 
-    console.log(productsJsonData);
-    console.log("Cantidad de productos:", productsJsonData.products.length);
+        console.log(productsJsonData);
+        console.log("Cantidad de productos:", productsJsonData.products.length);
 
-    _products = productsJsonData.products;
+        _products = productsJsonData.products;
 
-    displayProducts(_products);
-  } catch (error) {
-    console.log("Error al cargar los productos:", error);
-  }
+        displayProducts(_products);
+    } catch (error) {
+        console.log("Error al cargar los productos:", error);
+    }
 }
 
 // Mostrar cards
 function displayProducts(productsToDisplay) {
-  productsContainer.innerHTML = "";
+    productsContainer.innerHTML = "";
 
-  productsCounter.textContent =
-    `Productos encontrados: ${productsToDisplay.length}`;
+    productsCounter.textContent =
+        `Productos encontrados: ${productsToDisplay.length}`;
 
-  productsToDisplay.forEach((product) => {
-    const card = document.createElement("article");
-    card.classList.add("product-card");
+    productsToDisplay.forEach((product) => {
+        const card = document.createElement("article");
 
-    card.innerHTML = `
-      <h4>ID: ${product.id}</h4>
-      <h3>${product.title}</h3>
-      <p>${product.description}</p>
-      <p class="product-price">
-        Precio: $${product.price.toFixed(2)}
-      </p>
-      <p>Rating: ${product.rating}</p>
-    `;
+        card.classList.add("product-card");
 
-    productsContainer.appendChild(card);
-  });
+        card.innerHTML = `
+            <p class="product-id">ID: ${product.id}</p>
+            <h3>${product.title}</h3>
+            <p>${product.description}</p>
+            <p class="product-price">
+                Precio: $${product.price.toFixed(2)}
+            </p>
+            <p class="product-rating">Rating: ${product.rating}</p>
+        `;
+
+        productsContainer.appendChild(card);
+    });
 }
 
 // Aplicar filtro por nombre
 function applyFilters() {
-  const inputValue = nameFilter.value.toLowerCase().trim();
+    const inputValue = nameFilter.value.toLowerCase().trim();
 
-  // OPCIÓN 1: FOREACH
+    // OPCIÓN 1: FOREACH
 
-  const newProductsList = [];
+    const newProductsList = [];
 
-  _products.forEach((product) => {
-    const productName = product.title.toLowerCase();
+    _products.forEach((product) => {
+        const productName = product.title.toLowerCase();
 
-    if (productName.includes(inputValue)) {
-      newProductsList.push(product);
-    }
-  });
+        if (productName.includes(inputValue)) {
+            newProductsList.push(product);
+        }
+    });
 
-  console.log("Resultado usando foreach:", newProductsList);
+    console.log("Resultado usando foreach:", newProductsList);
 
-  displayProducts(newProductsList);
+    displayProducts(newProductsList);
 
-  // OPCIÓN 2: FILTER + INCLUDES
-  /*
-  const newProductsList = _products.filter((product) =>
-    product.title.toLowerCase().includes(inputValue)
-  );
+    // OPCIÓN 2: FILTER + INCLUDES
+    /*
+    const newProductsList = _products.filter((product) =>
+        product.title.toLowerCase().includes(inputValue)
+    );
 
-  console.log("Resultado usando filter e includes:", newProductsList);
+    console.log("Resultado usando filter e includes:", newProductsList);
 
-  displayProducts(newProductsList);
-  */
+    displayProducts(newProductsList);
+    */
 }
